@@ -9,7 +9,6 @@ xhttp.onreadystatechange = function () {
     for (let i = 0; i < data.buttons.length; i++) {
       let btnNumber = "btn" + i;
       let btnValue = data.buttons[i];
-
       let dynBtn = document.createElement("button");
       let dynDivAddBtn = document.getElementById("divButtonslst");
       dynDivAddBtn.appendChild(dynBtn);
@@ -35,7 +34,7 @@ xhttp.onreadystatechange = function () {
       let cont = document.getElementById("divPopulater");
       cont.appendChild(progress);
       progress.setAttribute("class", "clsStyleProgress");
-      progress.setAttribute("id", "progress" + i);
+      progress.setAttribute("id", "idWholeBar" + i);
 
       let bar = document.createElement("div");
       progress.appendChild(bar);
@@ -46,7 +45,7 @@ xhttp.onreadystatechange = function () {
       let lb = document.createElement("label");
       bar.appendChild(lb);
       lb.setAttribute("class", "styleLabel");
-      lb.setAttribute("id", "label" + i);
+      lb.setAttribute("id", "idlbl" + i);
       lb.innerHTML = data.bars[i] + "%";
     }
     // populating dropdown based on bars length
@@ -65,31 +64,28 @@ xhttp.onreadystatechange = function () {
 function addwidth(value) {
   // if dropdown select value is 0,1,2,3 based on that change the bar value
   let v = parseInt(document.getElementById("ddlSelectBar").value);
-  let a = document.getElementById("label" + v).innerHTML;
-
+  let a = document.getElementById("idlbl" + v).innerHTML;
   // add current value of bar + button current value of selected bar
   value = parseInt(value) + parseInt(a);
-
   // if value is greater than 100 & above change the color red
   if (value >= 100) {
     document.getElementById("idBar" + v).style.backgroundColor = "red";
     document.getElementById("idBar" + v).style.width = "100%";
-    document.getElementById("label" + v).innerHTML = value + "%";
+    document.getElementById("idlbl" + v).innerHTML = value + "%";
   }
   //if value is less than 100 and greater than 0 than select same green color;
   else if (value <= 100 && value > 0) {
     document.getElementById("idBar" + v).style.backgroundColor =
       "rgb(151, 238, 173)";
     document.getElementById("idBar" + v).style.width = value + "%";
-    document.getElementById("label" + v).innerHTML = value + "%";
+    document.getElementById("idlbl" + v).innerHTML = value + "%";
   }
   // if value is less than or equal to 0 than set value and with of bar equal to 0
   else if (value <= 0) {
     document.getElementById("idBar" + v).style.width = "0%";
-    document.getElementById("label" + v).innerHTML = "0%";
+    document.getElementById("idlbl" + v).innerHTML = "0%";
   }
 }
-
 // ajax method for get file from sever
 xhttp.open("GET", "http://pb-api.herokuapp.com/bars");
 xhttp.send();
