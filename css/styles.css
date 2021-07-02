@@ -1,0 +1,40 @@
+h3{
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Bar styles */
+.clsStyleProgress {
+    width: 100%;
+    background-color: rgb(167, 160, 160);
+    margin-bottom: 20px;
+  }
+  .styleBar {
+    width: 0%;
+    height: 1.5rem;
+    background-color: rgb(151, 238, 173);
+    text-align: center;
+  }
+  .styleLabel {
+    text-align: center;
+    line-height: 35px;
+    color: #000;
+  }
+  select {
+    padding: 1rem;
+    color: #000;
+  }
+  /* button styles */
+  .btnStyle {
+    padding: 1rem;
+    color: #000;
+    margin: 1rem;
+  }
+  /* break out point
+   */
+  @media only screen and (max-width: 500px) {
+    select {
+      margin-top: 3rem;
+    }
+  }
+  
