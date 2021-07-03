@@ -18,3 +18,7 @@ Data provided from end point: data file - http://pb-api.herokuapp.com/bars
 
 Example :
 {"buttons":[14,42,-50,-38],"bars":[52,39],"limit":110}
+
+used mocha for testing - tested end point connection
+install mocha : npm install mocha --sav-dev
+and install xmlhttprequest : npm install xmlhttprequest
